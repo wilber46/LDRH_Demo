@@ -16,8 +16,7 @@ public class Utils {
 			return;
 		}
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		String now = sdf.format(Calendar.getInstance().getTime());
+		String now = Utils.getCurTime();
 		
 		StringBuilder sb = new StringBuilder().append(now).append("--------").append(str).append("\n");
 		WLog.d(TAG, "[writeLog] str = " + sb.toString(),false);
@@ -38,5 +37,11 @@ public class Utils {
 				}
 			}
 		}
+	}
+
+	public static String getCurTime() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:sss");
+		String now = sdf.format(Calendar.getInstance().getTime());
+		return now;
 	}
 }
